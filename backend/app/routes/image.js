@@ -9,7 +9,7 @@ var router = express.Router();
 
 
 router.get("/", function (req, res) {
-    Image.find({}).select("imageUrl").exec(function (err, data) {
+    Image.find({}).select("title").exec(function (err, data) {
         res.json(data);
     });
 });
