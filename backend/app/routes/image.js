@@ -19,8 +19,9 @@ router.get("/", function (req, res) {
 
 
 
-router.post("/yey", upload.array(), function (req, res) {
+router.post("/yey", upload.single('image'), function (req, res) {
     console.log(req.body);
+    console.log(req.file);
     if(!req.body.imageUrl) {
         res.sendStatus(422);
         return;
