@@ -6,7 +6,7 @@ var express = require('express');
 var Image = require('../models/image');
 
 var multer = require('multer');
-var upload = multer();
+var upload = multer({ dest: 'uploads/' })
 
 var router = express.Router();
 
@@ -20,12 +20,7 @@ router.get("/", function (req, res) {
 
 
 router.post("/yey", upload.single('image'), function (req, res) {
-    console.log(req.body);
-    console.log(req.file);
-    if(!req.body.imageUrl) {
-        res.sendStatus(422);
-        return;
-    }
+
     var image = new Image(req.body);
     image.save(function (err) {
         if (err) {
