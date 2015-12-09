@@ -20,12 +20,8 @@ router.get("/", function (req, res) {
 
 
 router.post("/yey", upload.single('image'), function (req, res) {
-    console.log(req.body);
-    console.log(req.file.filename);
     var image = new Image(req.body);
     image.setFileName(req.file.filename);
-    console.log(image.title);
-    console.log(image.filename);
     image.save(function (err) {
         if (err) {
             res.sendStatus(422);

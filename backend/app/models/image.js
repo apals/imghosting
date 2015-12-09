@@ -16,8 +16,7 @@ var modelImage = new Schema({
 }, {versionKey: false});
 
 
-modelImage.methods.setFileName = function findSimilarType(fileName) {
-    console.log("setting file name");
+modelImage.methods.setFileName = function (fileName) {
     this.filename = fileName;
 };
 
