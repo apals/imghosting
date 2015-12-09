@@ -1,21 +1,15 @@
 <form ng-upload="uploadComplete(content)" action="http://localhost:5040/api/images/yey" enctype="multipart/form-data">
     <p>
-        <label>Fullname:</label>
-        <input type="text" name="fullname" ng-model="fullname" />
+        <label>Title:</label>
+        <input type="text" name="title" ng-model="title"/>
     </p>
-    <p>
-        <label>Gender:</label>
-        <input type="text" name="gender" ng-model="gender" />
-    </p>
-    <p>
-        <label>Favorite Color:</label>
-        <input type="text" name="color" ng-model="color"/>
-    </p>
+
     <p>
         <label>Your picture (file will not be saved on the server):</label>
-        <input type="file" name="image" />
+        <input type="file" name="image" ng-model="title"/>
     </p>
+
     <p>
-        <input type="submit" class="btn" value="Submit" ng-disabled="$isUploading"  />
+        <input type="submit" class="btn" value="Submit" ng-disabled="$isUploading"/>
     </p>
 </form>

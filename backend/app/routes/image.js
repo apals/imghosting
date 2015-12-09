@@ -12,7 +12,7 @@ var router = express.Router();
 
 
 router.get("/", function (req, res) {
-    Image.find({}).select("title").exec(function (err, data) {
+    Image.find({}).select({}).exec(function (err, data) {
         res.json(data);
     });
 });
@@ -20,8 +20,9 @@ router.get("/", function (req, res) {
 
 
 router.post("/yey", upload.single('image'), function (req, res) {
-
-    var image = new Image(req.body);
+    console.log(req.body);
+    console.log(req.file);
+    var image = new Image(req.body, req.file);
     image.save(function (err) {
         if (err) {
             res.sendStatus(422);
