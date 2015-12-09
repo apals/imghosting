@@ -7,12 +7,18 @@ var Schema = mongoose.Schema;
 
 var modelImage = new Schema({
     title: String,
+    filename: {
+        type: String,
+        set: function (fileName) {
+            return fileName;
+        }
+    }
 }, {versionKey: false});
 
-modelImage.plugin(filePlugin, {
-    name: "image",
-    upload_to: make_upload_to_model('uploads', 'images'),
-    relative_to: 'uploads'
-});
+
+modelImage.methods.setFileName = function findSimilarType(fileName) {
+    console.log("setting file name");
+    this.filename = fileName;
+};
 
 module.exports = mongoose.model("Image", modelImage);
