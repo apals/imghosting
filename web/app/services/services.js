@@ -1,4 +1,3 @@
-
 /**
  * Created by apals on 06/12/15.
  */
@@ -19,3 +18,17 @@ armadaCopyServices.factory('Images', ['$resource',
             query: {method: 'GET', isArray: true}
         });
     }]);
+
+
+armadaCopyServices.factory('Comment', ['$resource',
+    function ($resource) {
+        return $resource('http://localhost:5040/api/images/:id/', {id: '@id'/*, com: '@comment'*/}, {
+            send_comment: {
+                method: 'POST', params: {com: comment, user: username}
+            } // this method issues a PUT request
+
+        });
+    }]);
+
+
+

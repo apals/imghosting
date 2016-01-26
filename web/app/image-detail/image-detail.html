@@ -1,1 +1,21 @@
-<img ng-src="{{image.imageUrl}}" />
+<img ng-src="{{image.imageUrl}}"/>
+
+<form ng-submit="submit()" ng-controller="View2Ctrl">
+
+    <div>
+        <label for="username">Username:</label>
+        <input id="username" type="text" name="username" ng-model="username">
+    </div>
+    <div>
+        <label for="comment">Comment:</label>
+        <textarea name="comment" ng-model="comment" class="form-control" rows="5" id="comment"></textarea>
+    </div>
+    <input type="submit" id="submit" value="Submit"/>
+</form>
+
+<div ng-repeat="comment in image.comments">
+    <p>{{comment.user}} wrote:</p>
+    <blockquote>
+        {{comment.comment}}
+    </blockquote>
+</div>

@@ -12,7 +12,11 @@ var modelImage = new Schema({
         set: function (fileName) {
             return fileName;
         }
-    }
+    },
+    comments: [{
+        comment: String,
+        user: String
+    }]
 }, {versionKey: false});
 
 

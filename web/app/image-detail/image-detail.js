@@ -9,7 +9,14 @@ angular.module('imghosting.image-detail', ['ngRoute'])
         });
     }])
 
-    .controller('View2Ctrl', ['$scope', '$routeParams', 'ImageOne',
-        function ($scope, $routeParams, ImageOne) {
+    .controller('View2Ctrl', ['$scope', '$routeParams', 'ImageOne', 'Comment',
+        function ($scope, $routeParams, ImageOne, Comment) {
+
             $scope.image = ImageOne.query({_id: $routeParams.id});
+
+            $scope.submit = function() {
+                if ($scope.comment) {
+                    Comment.send_comment({id: $routeParams.id, comment: $scope.comment, username: $scope.username});
+                }
+            };
         }]);

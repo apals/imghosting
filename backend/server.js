@@ -7,6 +7,7 @@ var app = express();
 mongoose.connect(config.database);
 
 app.use("/api", routes);
+app.use(express.static('uploads'));
 
 var port = 5040;
 app.listen(port, function() {
